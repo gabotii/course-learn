@@ -3,34 +3,26 @@ require("dotenv").config();
 
 /* ***************
  * Connection Pool
- * SSL Object needed for local testing of app
- * But will cause problems in production environment
- * If - else will make determination which to use
+ * Render-hosted databases require SSL/TLS
+ * Simplify configuration to always use SSL
  * *************** */
-let pool;
-if (process.env.NODE_ENV === "development") {
-  pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.DATABASE_URL.includes("localhost")
+    ? false // Disable SSL for local development if using localhost
+    : { rejectUnauthorized: false }, // Enable SSL for Render with self-signed certs
+});
 
-  module.exports = {
-    async query(text, params) {
-      try {
-        const res = await pool.query(text, params);
-        console.log("executed query", { text });
-        return res;
-      } catch (error) {
-        console.error("error in query", { text });
-        throw error;
-      }
-    },
-  };
-} else {
-  pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-  });
-  module.exports = pool;
-}
+// Added for troubleshooting queries
+module.exports = {
+  async query(text, params) {
+    try {
+      const res = await pool.query(text, params);
+      console.log("executed query", { text });
+      return res;
+    } catch (error) {
+      console.error("error in query", { text });
+      throw error;
+    }
+  },
+};
