@@ -1,0 +1,10 @@
+<!-- Content Heading: Displays the main heading based on the title passed from the controller -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } %>
+
+<!-- Message: Displays a notice if no inventory items are available -->
+<%# messages() %>
+
+<!-- Inventory Items Display: Shows the grid of inventory items -->
+<%- grid %>
