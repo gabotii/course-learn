@@ -1,0 +1,36 @@
+<%- include('../partials/head', { title: title }) %>
+<body>
+  <div id="wrapper">
+    <main>
+      <h1><%= title %></h1>
+      <div class="flash-messages">
+        <%- messages() %>
+      </div>
+      <% if (errors) { %>
+        <ul class="notice">
+          <% errors.forEach(error => { %>
+            <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      <% } %>
+      <form action="/inv/add-classification" method="POST" id="addClassificationForm" class="form-container">
+        <div class="form-group">
+          <label for="classificationName">Classification Name:</label>
+          <input
+            type="text"
+            name="classification_name"
+            id="classificationName"
+            required
+            pattern="[A-Za-z0-9]+"
+            title="No spaces or special characters allowed"
+            value="<%= locals.classification_name || '' %>"
+          >
+        </div>
+        <p class="form-note">Note: Classification name cannot contain spaces or special characters.</p>
+        <button type="submit">Add Classification</button>
+      </form>
+    </main>
+  </div>
+  <script src="/js/formValidation.js"></script>
+</body>
+</html>

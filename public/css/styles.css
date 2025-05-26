@@ -1,0 +1,395 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("/images/site/small_check.jpg");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1em;
+  border: 5px solid #005E7A;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.siteName a {
+  color: #000;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+#tools a {
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+nav {
+  background-color: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0.5em;
+  border: 5px solid #005E7A;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+  background-color: #222;
+  color: white;
+  padding: 0.5em;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li:hover {
+  background-color: #444;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+main {
+  background-color: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1em;
+  border: 5px solid #005E7A;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  background-image: url("/images/vehicles/delorean.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #000;
+  padding: 4em;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.car-details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1em;
+  border-radius: 10px;
+  flex-direction: row;
+  width: 100%;
+  max-width: 200px;
+  color: #005E7A;
+  box-sizing: border-box;
+}
+
+.car-details h3,
+.car-details p {
+  color: #005E7A;
+  margin: 0.3em 0;
+}
+
+.car-details img {
+  max-width: 250px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.btn-own {
+  display: inline-block;
+  background-color: #00A4D6;
+  padding: 0.5em 1.2em;
+  color: black;
+  text-decoration: none;
+  margin-top: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-own:hover {
+  background-color: #009ec4;
+}
+
+.upgrades-reviews {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2em;
+  margin-top: 2em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.upgrades {
+  width: 100%;
+}
+
+.reviews {
+  width: 100%;
+}
+
+.upgrade-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1em;
+}
+
+.upgrade img {
+  width: 100px;
+  height: auto;
+}
+
+footer {
+  background-color: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1em;
+  border: 5px solid #005E7A;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.copyright {
+  margin: 0;
+}
+
+/* Vehicle Detail View Styling */
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.detail-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.detail-content {
+  width: 100%;
+}
+
+.detail-content h2 {
+  color: #333;
+  margin-bottom: 1em;
+  font-size: 1.8em;
+}
+
+.detail-content p {
+  color: #333;
+  line-height: 1.6;
+  margin: 0.5em 0;
+}
+
+/* Accessibility for focus states */
+a:focus, button:focus, .btn-own:focus {
+  outline: 2px solid #00A4D6;
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li {
+    margin: 0.5em 0;
+  }
+  .hero {
+    padding: 2em;
+  }
+  .car-details {
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+  }
+  .upgrades-reviews {
+    grid-template-columns: 1fr;
+  }
+  .upgrades {
+    width: 100%;
+  }
+  .reviews {
+    width: 100%;
+  }
+  .detail-container {
+    grid-template-columns: 1fr;
+  }
+  footer {
+    text-align: center;
+    padding: 0.5em;
+  }
+}
+
+/* Form Styles */
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.register-link, .login-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.register-link a, .login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-link a:hover, .login-link a:hover {
+  text-decoration: underline;
+}
+
+.flash-messages {
+  margin-bottom: 20px;
+}
+
+.flash-messages div {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.flash-messages .success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash-messages .error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Password Toggle Button */
+#togglePassword {
+  width: auto;
+  padding: 8px 12px;
+  margin-top: 10px;
+  background-color: #6c757d;
+  color: #fff;
+  font-size: 14px;
+}
+
+#togglePassword:hover {
+  background-color: #5a6268;
+}
+
+/* Password Toggle Span */
+#pswdBtn {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-top: 10px;
+  background-color: #6c757d;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#pswdBtn:hover {
+  background-color: #5a6268;
+}
+
+/* Password Requirements Styling */
+.password-requirements {
+  font-size: 0.9em;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Valid/Invalid Input Styling */
+input:required:invalid, input:focus:invalid {
+  border-color: #f44336;
+}
+
+input:required:invalid:not(:placeholder-shown)::after,
+input:focus:invalid::after {
+  content: "✖";
+  color: #f44336;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+input:required:valid {
+  border-color: #4caf50;
+}
+
+input:required:valid::after {
+  content: "✔";
+  color: #4caf50;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}

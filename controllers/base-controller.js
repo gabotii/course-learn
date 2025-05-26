@@ -1,0 +1,65 @@
+const utilities = require("../utilities");
+
+const baseController = {};
+
+baseController.buildHome = async function (req, res, next) {
+  try {
+    const nav = await utilities.getNav();
+    const body = `
+      <section class="hero" role="banner">
+        <h2>Welcome to CSE Motors!</h2>
+        <div class="car-details">
+          <div class="car-info">
+            <h3 class="highlight">DMC Delorean</h3>
+            <p>3 Cup holders</p>
+            <p>Superman doors</p>
+            <p>Fuzzy dice!</p>
+            <a href="#" class="btn-own">Own Today</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="upgrades-reviews" role="region" aria-label="Upgrades and Reviews">
+        <div class="upgrades">
+          <h3>Delorean Upgrades</h3>
+          <div class="upgrade-items">
+            <div class="upgrade">
+              <img src="/images/upgrades/flux-cap.png" alt="Flux Capacitor">
+              <p><a href="#">Flux Capacitor</a></p>
+            </div>
+            <div class="upgrade">
+              <img src="/images/upgrades/flame.jpg" alt="Flame Decals">
+              <p><a href="#">Flame Decals</a></p>
+            </div>
+            <div class="upgrade">
+              <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers">
+              <p><a href="#">Bumper Stickers</a></p>
+            </div>
+            <div class="upgrade">
+              <img src="/images/upgrades/hub-cap.jpg" alt="Hub Caps">
+              <p><a href="#">Hub Caps</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews">
+          <h3>DMC Delorean Reviews</h3>
+          <ul>
+            <li>“So fast it's almost like traveling in time.” (4/5)</li>
+            <li>“Coolest ride on the road.” (4/5)</li>
+            <li>“I'm feeling McFly!” (5/5)</li>
+            <li>“The most futuristic ride of our day.” (4.5/5)</li>
+            <li>“80’s livin and I love it!” (5/5)</li>
+          </ul>
+        </div>
+      </section>
+    `;
+    res.render("index", { title: "Home", nav, body });
+  } catch (error) {
+    error.status = 500;
+    error.message = "Failed to load home page.";
+    next(error);
+  }
+};
+
+module.exports = baseController;

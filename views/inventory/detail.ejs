@@ -1,0 +1,29 @@
+<!-- Content Heading: Displays the main heading based on the title passed from the controller -->
+<% if (title) { %>
+<h1 id="vehicle-details-heading"><%= title %></h1>
+<% } %>
+
+<!-- Inventory Detail Display: Shows the detailed information of a single vehicle -->
+<%- detail %>
+
+<style>
+  .detail-container {
+    display: grid;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .detail-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  .detail-content {
+    flex: 1;
+  }
+  @media (max-width: 768px) {
+    .detail-container {
+      flex-direction: column;
+    }
+  }
+</style>

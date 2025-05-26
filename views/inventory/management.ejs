@@ -1,0 +1,21 @@
+<%- include('../partials/head', { title: title }) %>
+<body>
+  <div id="wrapper">
+    <%- include('../partials/header') %>
+    <%- include('../partials/navigation', { nav: nav }) %>
+
+    <main>
+      <h1><%= title %></h1>
+      <div class="flash-messages">
+        <%- messages() %>
+      </div>
+      <ul>
+        <li><a href="/inv/add-classification">Add New Classification</a></li>
+        <li><a href="/inv/add-inventory">Add New Inventory Item</a></li>
+      </ul>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </div>
+</body>
+</html>
